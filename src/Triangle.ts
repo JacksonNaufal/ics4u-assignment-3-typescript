@@ -26,6 +26,7 @@ class Triangle {
   private topSideC = 0
   private readonly triangleDegree = 180
   private readonly degree = 3.14
+  private readonly here = 'true'
 
   // this is a constructor for the inputs
   constructor(sideA: number, sideB: number, sideC: number) {
@@ -111,6 +112,11 @@ class Triangle {
     this.angleThree = Math.round(this.angleThree)
   }
 
+  // if triangle gets here IT IS VALID
+  getTriangleValid(): string {
+    return this.here
+  }
+
   // returns the area
   getArea(): number {
     return this.area
@@ -143,6 +149,7 @@ class Triangle {
 
   // the status of the sides.
   status(): void {
+    console.log(`Is triangle Valid: ${this.here}`)
     console.log('The three sides were')
     console.log(`Side A ---> ${this.sideA}`)
     console.log(`Side B ---> ${this.sideB}`)
