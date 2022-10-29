@@ -1,10 +1,10 @@
 /**
  * The program is the classic
- * Vehicle stats program
+ * Triangle calculation program.
  *
  * By:      Jackson Naufal
  * Version: 1.0
- * Since:   2020-10-17
+ * Since:   2022-10-29
  */
 
 // Imports
@@ -14,7 +14,7 @@ import promptSync from 'prompt-sync'
 const prompt = promptSync()
 
 // the beggining of the program
-console.log('Enter your triangles sides')
+console.log('Enter your triangles sides(cm)')
 const sA = prompt('Enter your first side: ')
 const sideA = parseFloat(sA)
 const sB = prompt('Enter your second side: ')
@@ -24,14 +24,19 @@ const sideC = parseFloat(sC)
 console.log(' ')
 
 try {
+  // Checks if any side is less than or equal to 0
   if (sideA <= 0 || sideB <= 0 || sideC <= 0) {
     console.log('Invalid Input, Side can not be less than 1!')
+
+    // Checks if any side is to long or short
   } else if (
     sideA + sideB <= sideC ||
     sideB + sideC <= sideA ||
     sideA + sideC <= sideB
   ) {
     console.log('Invalid Input, To Long!')
+
+    // Checks if any input is a number
   } else if (isNaN(sideA) || isNaN(sideB) || isNaN(sideC)) {
     console.log('Invalid Input, not a Integer')
   } else {
@@ -40,16 +45,18 @@ try {
 
     // The three sides
     triangle.status()
+
     // The shape of the triangle
     triangle.triangleName(sideA, sideB, sideC)
     console.log(`\nThe shape is a ${triangle.getShape()}`)
+
     // The perimeter
     triangle.trianglePerimeter(sideA, sideB, sideC)
 
     // the area and perimeter
     console.log('\nThe Perimeter and Area are below!')
 
-    console.log(`\nThe perimeter is ${triangle.getPerimeter()}cm²`)
+    console.log(`\nThe perimeter is ${triangle.getPerimeter()}cm`)
 
     // The area
     triangle.triangleArea(sideA, sideB, sideC)
@@ -57,14 +64,18 @@ try {
 
     // The angles are below
     console.log('\nThe angles are below!')
+
+    // This is angle A
     triangle.angleA(sideA, sideB, sideC)
-    console.log(`Angle A is ${triangle.getAngleA()}`)
+    console.log(`Angle A is ${triangle.getAngleA()}°`)
 
+    // This is angle B
     triangle.angleB(sideA, sideB, sideC)
-    console.log(`Angle A is ${triangle.getAngleB()}`)
+    console.log(`Angle B is ${triangle.getAngleB()}°`)
 
+    // This is angle C
     triangle.angleC(sideA, sideB, sideC)
-    console.log(`Angle A is ${triangle.getAngleC()}`)
+    console.log(`Angle C is ${triangle.getAngleC()}°`)
   }
 } catch (e) {
   console.log('Not a Valid Input!')
