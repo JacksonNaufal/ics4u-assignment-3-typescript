@@ -24,49 +24,49 @@ const sideC = parseFloat(sC)
 console.log(' ')
 
 try {
+  if (sideA <= 0 || sideB <= 0 || sideC <= 0) {
+    console.log('Invalid Input, Side can not be less than 1!')
+  } else if (
+    sideA + sideB <= sideC ||
+    sideB + sideC <= sideA ||
+    sideA + sideC <= sideB
+  ) {
+    console.log('Invalid Input, To Long!')
+  } else if (isNaN(sideA) || isNaN(sideB) || isNaN(sideC)) {
+    console.log('Invalid Input, not a Integer')
+  } else {
+    // defining triangle
+    const triangle = new Triangle(sideA, sideB, sideC)
 
-    if (sideA <= 0 || sideB <= 0 || sideC <= 0) {
-         console.log('Invalid Input, Side can not be less than 1!')
-    } else if (sideA + sideB <= sideC || sideB + sideC <= sideA || sideA + sideC <= sideB) {
-         console.log('Invalid Input, To Long!')
-    } else if (isNaN(sideA) || isNaN(sideB) || isNaN(sideC)) {
-         console.log('Invalid Input, not a Integer')
-   
-    } else {
+    // The three sides
+    triangle.status()
+    // The shape of the triangle
+    triangle.triangleName(sideA, sideB, sideC)
+    console.log(`\nThe shape is a ${triangle.getShape()}`)
+    // The perimeter
+    triangle.trianglePerimeter(sideA, sideB, sideC)
 
-         // defining triangle
-         const triangle = new Triangle(sideA, sideB, sideC)
+    // the area and perimeter
+    console.log('\nThe Perimeter and Area are below!')
 
-         // The three sides
-         triangle.status()
-         // The shape of the triangle
-         triangle.triangleName(sideA, sideB, sideC)
-         console.log(`\nThe shape is a ${triangle.getShape()}`)
-         // The perimeter
-         triangle.trianglePerimeter(sideA, sideB, sideC)
+    console.log(`\nThe perimeter is ${triangle.getPerimeter()}cm²`)
 
-         // the area and perimeter
-         console.log('\nThe Perimeter and Area are below!')
+    // The area
+    triangle.triangleArea(sideA, sideB, sideC)
+    console.log(`The area is ${triangle.getArea()}cm²`)
 
-         console.log(`\nThe perimeter is ${triangle.getPerimeter()}cm²`)
+    // The angles are below
+    console.log('\nThe angles are below!')
+    triangle.angleA(sideA, sideB, sideC)
+    console.log(`Angle A is ${triangle.getAngleA()}`)
 
-         // The area
-         triangle.triangleArea(sideA, sideB, sideC)
-         console.log(`The area is ${triangle.getArea()}cm²`)
+    triangle.angleB(sideA, sideB, sideC)
+    console.log(`Angle A is ${triangle.getAngleB()}`)
 
-         // The angles are below
-         console.log('\nThe angles are below!')
-         triangle.angleA(sideA, sideB, sideC)
-         console.log(`Angle A is ${triangle.getAngleA()}`)
-
-         triangle.angleB(sideA, sideB, sideC)
-         console.log(`Angle A is ${triangle.getAngleB()}`)
-
-         triangle.angleC(sideA, sideB, sideC)
-         console.log(`Angle A is ${triangle.getAngleC()}`)
-
-    }
+    triangle.angleC(sideA, sideB, sideC)
+    console.log(`Angle A is ${triangle.getAngleC()}`)
+  }
 } catch (e) {
-    console.log("Not a Valid Input!")
+  console.log('Not a Valid Input!')
 }
 console.log('\nDone.')

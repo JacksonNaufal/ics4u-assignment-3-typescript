@@ -16,100 +16,102 @@ class Triangle {
   private semiperimeter = 0
   private area = 0
   private angleOne = 0
-  private angleTwo = 0 
+  private angleTwo = 0
   private angleThree = 0
-  private aSq = 0 
+  private aSq = 0
   private bSq = 0
   private cSq = 0
 
   // private array creation
 
-  constructor(
-    sideA: number,
-    sideB: number,
-    sideC: number,
-  ) {
+  constructor(sideA: number, sideB: number, sideC: number) {
     this.sideA = sideA
     this.sideB = sideB
     this.sideC = sideC
-    }
+  }
 
-    triangleName(sideA: number, sideB: number, sideC: number): string { 
+  triangleName(sideA: number, sideB: number, sideC: number): string {
     if (sideA == sideB && sideB == sideC) {
-        return this.shape = 'Equilateral Triangle!'
+      return (this.shape = 'Equilateral Triangle!')
     } else if (sideA == sideB || sideB == sideC || sideA == sideC) {
-         return this.shape = 'Isoceles Triangle!'
+      return (this.shape = 'Isoceles Triangle!')
     } else {
-         return this.shape = 'Scalene Triangle!' 
+      return (this.shape = 'Scalene Triangle!')
     }
-    }
+  }
 
-    trianglePerimeter(sideA: number, sideB: number, sideC: number): void {
-     this.perimeter = sideA + sideB + sideC
-    }
+  trianglePerimeter(sideA: number, sideB: number, sideC: number): void {
+    this.perimeter = sideA + sideB + sideC
+  }
 
-    triangleArea(sideA: number, sideB: number, sideC: number): void {
-        this.semiperimeter = ((sideA + sideB + sideC) / 2)
+  triangleArea(sideA: number, sideB: number, sideC: number): void {
+    this.semiperimeter = (sideA + sideB + sideC) / 2
 
-        this.area =  Math.sqrt(this.semiperimeter * (this.semiperimeter - sideA) * (this.semiperimeter - sideB) * (this.semiperimeter - sideC))
-        Math.floor(this.area)
-    }
+    this.area = Math.sqrt(
+      this.semiperimeter *
+        (this.semiperimeter - sideA) *
+        (this.semiperimeter - sideB) *
+        (this.semiperimeter - sideC)
+    )
+    Math.floor(this.area)
+  }
 
-    angleA(sideA: number, sideB: number, sideC: number): void {
+  angleA(sideA: number, sideB: number, sideC: number): void {
+    this.aSq = sideA ** 2
+    this.bSq = sideB ** 2
+    this.cSq = sideC ** 2
+    this.angleOne = Math.acos(
+      (this.bSq + this.cSq - this.aSq) / (2 * this.bSq * this.cSq)
+    )
+  }
 
-        this.aSq = sideA ** 2
-        this.bSq = sideB ** 2
-        this.cSq = sideC ** 2
-        this.angleOne = Math.acos((this.bSq + this.cSq - this.aSq) / (2 * this.bSq * this.cSq))
-    } 
+  angleB(sideA: number, sideB: number, sideC: number): void {
+    this.aSq = sideA ** 2
+    this.bSq = sideB ** 2
+    this.cSq = sideC ** 2
+    this.angleTwo = Math.acos(
+      (this.bSq + this.cSq - this.aSq) / (2 * this.bSq * this.cSq)
+    )
+  }
 
-        angleB(sideA: number, sideB: number, sideC: number): void {
+  angleC(sideA: number, sideB: number, sideC: number): void {
+    this.aSq = sideA ** 2
+    this.bSq = sideB ** 2
+    this.cSq = sideC ** 2
+    this.angleThree = Math.acos(
+      (this.bSq + this.cSq - this.aSq) / (2 * this.bSq * this.cSq)
+    )
+  }
 
-        this.aSq = sideA ** 2
-        this.bSq = sideB ** 2
-        this.cSq = sideC ** 2
-        this.angleTwo = Math.acos((this.bSq + this.cSq - this.aSq) / (2 * this.bSq * this.cSq))
-    }
-
-        angleC(sideA: number, sideB: number, sideC: number): void {
-
-        this.aSq = sideA ** 2
-        this.bSq = sideB ** 2
-        this.cSq = sideC ** 2
-        this.angleThree = Math.acos((this.bSq + this.cSq - this.aSq) / (2 * this.bSq * this.cSq))
-    }
-
-
-    getArea(): number {
+  getArea(): number {
     return this.area
-    }
+  }
 
-    getPerimeter(): number {
+  getPerimeter(): number {
     return this.perimeter
-    }
+  }
 
-    getShape(): string {
-       return this.shape
-    }
+  getShape(): string {
+    return this.shape
+  }
 
-    getAngleA(): number {
-        return this.angleOne
-    }
+  getAngleA(): number {
+    return this.angleOne
+  }
 
-    getAngleB(): number {
-        return this.angleTwo
-    }
+  getAngleB(): number {
+    return this.angleTwo
+  }
 
-    getAngleC(): number {
-        return this.angleThree
-    }
+  getAngleC(): number {
+    return this.angleThree
+  }
 
-
-    status(): void {
-      console.log('The three sides were')
-      console.log(`Side A ---> ${(this.sideA)}`)
-      console.log(`Side B ---> ${(this.sideB)}`)
-      console.log(`Side C ---> ${(this.sideC)}`)
-    }
+  status(): void {
+    console.log('The three sides were')
+    console.log(`Side A ---> ${this.sideA}`)
+    console.log(`Side B ---> ${this.sideB}`)
+    console.log(`Side C ---> ${this.sideC}`)
+  }
 }
 export = Triangle
