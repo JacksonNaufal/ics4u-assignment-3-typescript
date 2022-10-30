@@ -13,12 +13,6 @@ class Triangle {
   private readonly sideB: number
   private readonly sideC: number
 
-  // These are variables
-  private readonly triangleDegree = 180
-  private readonly degree = 3.14
-  private readonly here = 'true'
-  // private isValid = true
-
   // this is a constructor for the inputs
   constructor(lengthA: number, lengthB: number, lengthC: number) {
     this.sideA = lengthA
@@ -26,39 +20,31 @@ class Triangle {
     this.sideC = lengthC
   }
 
-  // isTriangleValid(sideA: number, sideB: number, sideC: number): boolean {
-  //  if (sideA + sideB > sideC || sideB + sideC > sideA || sideA + sideC > sideB) {
-  //     this.isValid = true;
-  //  } else {
-  //          this.isValid = false;
-  // }
-  //  return this.isValid;
-  // }
+  isTriangleValid(): boolean {
+      if (this.sideA + this.sideB <= this.sideC || this.sideB + this.sideC <= this.sideA || this.sideA + this.sideC <= this.sideB) {
+          return false
+      } else {
+          return true
+      }
+    }
 
   // This is where the triangle name is created
   triangleName(): string {
     if (this.sideA === this.sideB && this.sideB === this.sideC) {
-      let shape = 'Equilateral Triangle'
-      return shape
+        let shape = 'Equilateral Triangle'
+        return shape
+    } else if (this.sideA === this.sideB || this.sideB === this.sideC || this.sideA === this.sideC) {
+        let shape = 'Isoceles Triangle'
+        return shape
     } else if (
-      this.sideA === this.sideB ||
-      this.sideB === this.sideC ||
-      this.sideA === this.sideC
+      this.sideA * this.sideA + this.sideB * this.sideB === this.sideC * this.sideC ||
+      this.sideC * this.sideC + this.sideB * this.sideB === this.sideA * this.sideA ||
+      this.sideC * this.sideC + this.sideA * this.sideA === this.sideB * this.sideB
     ) {
-      let shape = 'Isoceles Triangle'
-      return shape
-    } else if (
-      this.sideA * this.sideA + this.sideB * this.sideB ===
-        this.sideC * this.sideC ||
-      this.sideC * this.sideC + this.sideB * this.sideB ===
-        this.sideA * this.sideA ||
-      this.sideC * this.sideC + this.sideA * this.sideA ===
-        this.sideB * this.sideB
-    ) {
-      let shape = 'Right angle Triangle'
+        let shape = 'Right angle Triangle'
       return shape
     } else {
-      let shape = 'Scalene Triangle!'
+        let shape = 'Scalene Triangle!'
       return shape
     }
   }
@@ -96,7 +82,7 @@ class Triangle {
     const topSideC = Math.pow(this.sideC, 2)
     if (side === 1) {
       angle = Math.acos(
-        (topSideB + topSideC - topSideA) / (2 * this.sideB * this.sideC)
+        ((topSideB + topSideC - topSideA) / (2 * this.sideB * this.sideC))
       )
     } else if (side === 2) {
       angle = Math.acos(
@@ -112,7 +98,6 @@ class Triangle {
 
   // the status of the sides.
   status(): void {
-    console.log(`Is triangle valid: ${this.here}`)
     console.log('The three sides were')
     console.log(`Side A ---> ${this.sideA}`)
     console.log(`Side B ---> ${this.sideB}`)
