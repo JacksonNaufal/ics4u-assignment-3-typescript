@@ -84,7 +84,7 @@ class Triangle {
     return area
   }
 
-  // This calculates angle A of the triangle
+  // This calculates the angles of the triangle
   triangleAngle(side: number): number {
     let angle: number
     const oneEighty = 180
