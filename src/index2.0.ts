@@ -1,6 +1,6 @@
 /**
  * The program is the classic
- * Vehicle stats program
+ * Triangle calculation program
  *
  * By:      Jackson Naufal
  * Version: 1.0
