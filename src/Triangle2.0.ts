@@ -38,20 +38,27 @@ class Triangle {
   // This is where the triangle name is created
   triangleName(): string {
     if (this.sideA === this.sideB && this.sideB === this.sideC) {
-        let shape = 'Equilateral Triangle'
-        return shape
-    } else if (this.sideA === this.sideB || this.sideB === this.sideC || this.sideA === this.sideC) {
-        let shape = 'Isoceles Triangle'
-        return shape
+      let shape = 'Equilateral Triangle'
+      return shape
     } else if (
-      this.sideA * this.sideA + this.sideB * this.sideB === this.sideC * this.sideC ||
-      this.sideC * this.sideC + this.sideB * this.sideB === this.sideA * this.sideA ||
-      this.sideC * this.sideC + this.sideA * this.sideA === this.sideB * this.sideB
+      this.sideA === this.sideB ||
+      this.sideB === this.sideC ||
+      this.sideA === this.sideC
     ) {
-        let shape = 'Right angle Triangle'
+      let shape = 'Isoceles Triangle'
+      return shape
+    } else if (
+      this.sideA * this.sideA + this.sideB * this.sideB ===
+        this.sideC * this.sideC ||
+      this.sideC * this.sideC + this.sideB * this.sideB ===
+        this.sideA * this.sideA ||
+      this.sideC * this.sideC + this.sideA * this.sideA ===
+        this.sideB * this.sideB
+    ) {
+      let shape = 'Right angle Triangle'
       return shape
     } else {
-        let shape = 'Scalene Triangle!'
+      let shape = 'Scalene Triangle!'
       return shape
     }
   }
@@ -89,7 +96,7 @@ class Triangle {
     const topSideC = Math.pow(this.sideC, 2)
     if (side === 1) {
       angle = Math.acos(
-        ((topSideB + topSideC - topSideA) / (2 * this.sideB * this.sideC))
+        (topSideB + topSideC - topSideA) / (2 * this.sideB * this.sideC)
       )
     } else if (side === 2) {
       angle = Math.acos(
