@@ -1,6 +1,6 @@
 /**
  * The program is the classic
- * Triangle calculation program
+ * Vehicle stats program
  *
  * By:      Jackson Naufal
  * Version: 1.0
@@ -28,19 +28,16 @@ try {
   if (sideA <= 0 || sideB <= 0 || sideC <= 0) {
     console.log('Invalid Input, Side can not be less than 1!')
     console.log('Is triangle valid: false')
-
-    // Checks if any side is to long or short
+    // Checks if any input is a number
+  } else if (isNaN(sideA) || isNaN(sideB) || isNaN(sideC)) {
+    console.log('Invalid Input, not a Integer')
+    console.log('Is triangle valid: false')
   } else if (
     sideA + sideB <= sideC ||
     sideB + sideC <= sideA ||
     sideA + sideC <= sideB
   ) {
-    console.log('Invalid Input, To Long!')
-    console.log('Is triangle valid: false')
-
-    // Checks if any input is a number
-  } else if (isNaN(sideA) || isNaN(sideB) || isNaN(sideC)) {
-    console.log('Invalid Input, not a Integer')
+    console.log('Invalid Input, to long!')
     console.log('Is triangle valid: false')
   } else {
     // defining triangle
@@ -56,11 +53,13 @@ try {
     // The perimeter
     triangle.trianglePerimeter(sideA, sideB, sideC)
 
-    // the area and perimeter
+    // the area and perimeter and semiperimeter
     console.log('\nThe Perimeter and Area are below!')
-
     console.log(`\nThe perimeter is ${triangle.getPerimeter()}cm`)
 
+    // The semiperimeter
+    triangle.triangleSemiperimeter(sideA, sideB, sideC)
+    console.log(`The semiperimeter is ${triangle.getSemiperimeter()}`)
     // The area
     triangle.triangleArea(sideA, sideB, sideC)
     console.log(`The area is ${triangle.getArea()}cm²`)
@@ -69,15 +68,13 @@ try {
     console.log('\nThe angles are below!')
 
     // This is angle A
-    triangle.angleA(sideA, sideB, sideC)
+    triangle.angleTriangle(sideA, sideB, sideC)
     console.log(`Angle A is ${triangle.getAngleA()}°`)
 
     // This is angle B
-    triangle.angleB(sideA, sideB, sideC)
     console.log(`Angle B is ${triangle.getAngleB()}°`)
 
     // This is angle C
-    triangle.angleC(sideA, sideB, sideC)
     console.log(`Angle C is ${triangle.getAngleC()}°`)
   }
 } catch (e) {
