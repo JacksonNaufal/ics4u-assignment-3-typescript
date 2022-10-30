@@ -27,6 +27,7 @@ class Triangle {
   private readonly triangleDegree = 180
   private readonly degree = 3.14
   private readonly here = 'true'
+  // private isValid = true
 
   // this is a constructor for the inputs
   constructor(sideA: number, sideB: number, sideC: number) {
@@ -34,6 +35,15 @@ class Triangle {
     this.sideB = sideB
     this.sideC = sideC
   }
+
+  // isTriangleValid(sideA: number, sideB: number, sideC: number): boolean {
+  //  if (sideA + sideB > sideC || sideB + sideC > sideA || sideA + sideC > sideB) {
+  //     this.isValid = true;
+  //  } else {
+  //          this.isValid = false;
+  // }
+  //  return this.isValid;
+  // }
 
   // This is where the triangle name is created
   triangleName(sideA: number, sideB: number, sideC: number): string {
@@ -57,10 +67,12 @@ class Triangle {
     this.perimeter = sideA + sideB + sideC
   }
 
+  triangleSemiperimeter(sideA: number, sideB: number, sideC: number): void {
+    this.semiperimeter = (sideA + sideB + sideC) / 2
+  }
+
   // This is where the area of the triangle is calculated
   triangleArea(sideA: number, sideB: number, sideC: number): void {
-    this.semiperimeter = (sideA + sideB + sideC) / 2
-
     this.area = Math.sqrt(
       this.semiperimeter *
         (this.semiperimeter - sideA) *
@@ -71,50 +83,34 @@ class Triangle {
   }
 
   // This calculates angle A of the triangle
-  angleA(sideA: number, sideB: number, sideC: number): void {
+  angleTriangle(sideA: number, sideB: number, sideC: number): void {
     this.topSideA = sideA * sideA
     this.topSideB = sideB * sideB
     this.topSideC = sideC * sideC
 
+    // SIDE ANGLE B
     this.angleOne =
       Math.acos(
         (this.topSideB + this.topSideC - this.topSideA) / (2 * sideB * sideC)
       ) *
       (this.triangleDegree / this.degree)
     this.angleOne = Math.round(this.angleOne)
-  }
 
-  // This calculated angleB of the triangle
-  angleB(sideA: number, sideB: number, sideC: number): void {
-    this.topSideA = sideA * sideA
-    this.topSideB = sideB * sideB
-    this.topSideC = sideC * sideC
-
+    // SIDE ANGLE B
     this.angleTwo =
       Math.acos(
         (this.topSideA + this.topSideC - this.topSideB) / (2 * sideA * sideC)
       ) *
       (this.triangleDegree / this.degree)
     this.angleTwo = Math.round(this.angleTwo)
-  }
 
-  // This calculated angleC of the triangle
-  angleC(sideA: number, sideB: number, sideC: number): void {
-    this.topSideA = sideA * sideA
-    this.topSideB = sideB * sideB
-    this.topSideC = sideC * sideC
-
+    // SIDE ANGLE C
     this.angleThree =
       Math.acos(
         (this.topSideA + this.topSideB - this.topSideC) / (2 * sideA * sideB)
       ) *
       (this.triangleDegree / this.degree)
     this.angleThree = Math.round(this.angleThree)
-  }
-
-  // if triangle gets here IT IS VALID
-  getTriangleValid(): string {
-    return this.here
   }
 
   // returns the area
@@ -125,6 +121,10 @@ class Triangle {
   // returns the perimeter
   getPerimeter(): number {
     return this.perimeter
+  }
+
+  getSemiperimeter(): number {
+    return this.semiperimeter
   }
 
   // returns the shape
@@ -149,7 +149,7 @@ class Triangle {
 
   // the status of the sides.
   status(): void {
-    console.log(`Is triangle Valid: ${this.here}`)
+    console.log(`Is triangle valid: ${this.here}`)
     console.log('The three sides were')
     console.log(`Side A ---> ${this.sideA}`)
     console.log(`Side B ---> ${this.sideB}`)
