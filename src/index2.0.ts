@@ -46,6 +46,8 @@ try {
     // The three sides
     triangle.status()
 
+    // triangle validity status
+    console.log(`Triangle Validity Status: ${triangle.isTriangleValid()}`)
     // The shape of the triangle
     console.log(`\nThe shape is a ${triangle.triangleName()}`)
 
