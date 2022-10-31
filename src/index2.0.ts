@@ -1,6 +1,6 @@
 /**
  * The program is the classic
- * Triangle calculation program
+ * triangle calculation program
  *
  * By:      Jackson Naufal
  * Version: 1.0
@@ -27,18 +27,9 @@ try {
   // Checks if any side is less than or equal to 0
   if (sideA <= 0 || sideB <= 0 || sideC <= 0) {
     console.log('Invalid Input, Side can not be less than 1!')
-    console.log('Is triangle valid: false')
     // Checks if any input is a number
   } else if (isNaN(sideA) || isNaN(sideB) || isNaN(sideC)) {
     console.log('Invalid Input, not a Integer')
-    console.log('Is triangle valid: false')
-  } else if (
-    sideA + sideB <= sideC ||
-    sideB + sideC <= sideA ||
-    sideA + sideC <= sideB
-  ) {
-    console.log('Invalid Input, to long!')
-    console.log('Is triangle valid: false')
   } else {
     // defining triangle
     const triangle = new Triangle(sideA, sideB, sideC)
