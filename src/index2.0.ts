@@ -37,17 +37,19 @@ try {
     // The three sides
     triangle.status()
 
-    // triangle validity status
-    console.log(`Triangle Validity Status: ${triangle.isTriangleValid()}`)
     // The shape of the triangle
     console.log(`\nThe shape is a ${triangle.triangleName()}`)
 
     // the area and perimeter and semiperimeter
     console.log('\nThe Perimeter and Area are below!')
+
+    // The perimeter calculation
     console.log(`\nThe perimeter is ${triangle.trianglePerimeter()}cm`)
 
+    // The semi permieter calculation
     console.log(`The semiperimeter is ${triangle.triangleSemiperimeter()}`)
-    // The area
+
+    // The area calculation
     console.log(`The area is ${triangle.triangleArea()}cm²`)
 
     // The angles are below
