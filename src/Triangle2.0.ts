@@ -35,17 +35,17 @@ class Triangle {
   // This is where the triangle name is created
   triangleName(): string {
     if (this.isTriangleValid() == false) {
-      let shape = '-1'
+      const shape = '-1'
       return shape
     } else if (this.sideA === this.sideB && this.sideB === this.sideC) {
-      let shape = 'Equilateral Triangle'
+      const shape = 'Equilateral Triangle'
       return shape
     } else if (
       this.sideA === this.sideB ||
       this.sideB === this.sideC ||
       this.sideA === this.sideC
     ) {
-      let shape = 'Isoceles Triangle'
+      const shape = 'Isoceles Triangle'
       return shape
     } else if (
       this.sideA * this.sideA + this.sideB * this.sideB ===
@@ -55,10 +55,10 @@ class Triangle {
       this.sideC * this.sideC + this.sideA * this.sideA ===
         this.sideB * this.sideB
     ) {
-      let shape = 'Right angle Triangle'
+      const shape = 'Right angle Triangle'
       return shape
     } else {
-      let shape = 'Scalene Triangle!'
+      const shape = 'Scalene Triangle!'
       return shape
     }
   }
