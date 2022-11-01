@@ -46,7 +46,7 @@ class Triangle {
       this.sideB === this.sideC ||
       this.sideA === this.sideC
     ) {
-      const shape = 'Isoceles Triangle'
+      const shape = 'Isosceles Triangle'
       return shape
     } else if (
       this.sideA * this.sideA + this.sideB * this.sideB ===
@@ -171,13 +171,24 @@ class Triangle {
     }
   }
 
+  // returns sideA
+  getSideA(): number {
+    return this.sideA
+  }
+
+  // returns sideB
+  getSideB(): number {
+    return this.sideB
+  }
+
+  // returns sideC
+  getSideC(): number {
+    return this.sideC
+  }
+
   // the status of the sides.
   status(): void {
     console.log(`Triangle Validity Status: ${this.isTriangleValid()}`)
-    console.log('\nThe three sides were')
-    console.log(`Side A ---> ${this.sideA}`)
-    console.log(`Side B ---> ${this.sideB}`)
-    console.log(`Side C ---> ${this.sideC}`)
   }
 }
 export = Triangle
