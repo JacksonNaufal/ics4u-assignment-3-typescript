@@ -4,7 +4,7 @@
  *
  * By:      Jackson Naufal
  * Version: 1.0
- * Since:   2022-10-29
+ * Since:   2022-10-31
  */
 
 class Triangle {
@@ -99,7 +99,6 @@ class Triangle {
           (semiperimeterArea - this.sideB) *
           (semiperimeterArea - this.sideC)
       )
-      Math.round(area)
       return area
     }
   }
@@ -131,10 +130,51 @@ class Triangle {
     }
   }
 
+  // This calculates the height of the triangle
+  triangleHeight(side: number): number {
+    if (!this.isTriangleValid()) {
+      const height = -1
+      return height
+    } else {
+      let height: number
+      const area: number = this.triangleArea()
+      if (side === 1) {
+        height = (2 * area) / this.sideA
+      } else if (side === 2) {
+        height = (2 * area) / this.sideB
+      } else {
+        height = (2 * area) / this.sideC
+      }
+      return height
+    }
+  }
+
+  // this calculates the innerCircle radius of the triangle
+  innerCircleRadius(): number {
+    if (!this.isTriangleValid()) {
+      const innerCircle = -1
+      return innerCircle
+    } else {
+      const innerCircle = this.triangleArea() / this.triangleSemiperimeter()
+      return innerCircle
+    }
+  }
+
+  circumRadiusTriangle(): number {
+    if (!this.isTriangleValid()) {
+      const circumRadius = -1
+      return circumRadius
+    } else {
+      const circumRadius =
+        (this.sideA * this.sideB * this.sideC) / (4 * this.triangleArea())
+      return circumRadius
+    }
+  }
+
   // the status of the sides.
   status(): void {
     console.log(`Triangle Validity Status: ${this.isTriangleValid()}`)
-    console.log('The three sides were')
+    console.log('\nThe three sides were')
     console.log(`Side A ---> ${this.sideA}`)
     console.log(`Side B ---> ${this.sideB}`)
     console.log(`Side C ---> ${this.sideC}`)
