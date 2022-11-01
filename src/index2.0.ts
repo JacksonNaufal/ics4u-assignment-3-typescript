@@ -4,7 +4,7 @@
  *
  * By:      Jackson Naufal
  * Version: 1.0
- * Since:   2020-10-31
+ * Since:   2020-10-17
  */
 
 // Imports
@@ -36,6 +36,10 @@ try {
 
     // The three sides
     triangle.status()
+    console.log('\nThe three sides were')
+    console.log(`Side A ---> ${triangle.getSideA()} cm`)
+    console.log(`Side B ---> ${triangle.getSideB()} cm`)
+    console.log(`Side C ---> ${triangle.getSideC()} cm`)
 
     // The shape is below
     console.log('\nThe triangle type is below!')
