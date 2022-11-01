@@ -4,7 +4,7 @@
  *
  * By:      Jackson Naufal
  * Version: 1.0
- * Since:   2020-10-17
+ * Since:   2020-10-31
  */
 
 // Imports
@@ -13,7 +13,7 @@ import promptSync from 'prompt-sync'
 
 const prompt = promptSync()
 
-// the beggining of the program
+// the beginning of the program
 console.log('Enter your triangles sides(cm)')
 const sA = prompt('Enter your first side: ')
 const sideA = parseFloat(sA)
@@ -37,20 +37,22 @@ try {
     // The three sides
     triangle.status()
 
+    // The shape is below
+    console.log('\nThe triangle type is below!')
     // The shape of the triangle
-    console.log(`\nThe shape is a ${triangle.triangleName()}`)
+    console.log(`The type is a ${triangle.triangleName()}`)
 
     // the area and perimeter and semiperimeter
     console.log('\nThe Perimeter and Area are below!')
 
     // The perimeter calculation
-    console.log(`\nThe perimeter is ${triangle.trianglePerimeter()}cm`)
+    console.log(`The perimeter is ${triangle.trianglePerimeter()} cm`)
 
     // The semi permieter calculation
-    console.log(`The semiperimeter is ${triangle.triangleSemiperimeter()}`)
+    console.log(`The semiperimeter is ${triangle.triangleSemiperimeter()} cm`)
 
     // The area calculation
-    console.log(`The area is ${triangle.triangleArea()}cm²`)
+    console.log(`The area is ${triangle.triangleArea().toFixed(4)} cm²`)
 
     // The angles are below
     console.log('\nThe angles are below!')
@@ -63,6 +65,42 @@ try {
 
     // This is angle C
     console.log('Angle C is ' + triangle.triangleAngle(3).toFixed(4) + ' rad')
+
+    // The height below
+    console.log('\nThe heights are below!')
+
+    // This is the height of sideA
+    console.log(
+      `The height of side A is ${triangle.triangleHeight(1).toFixed(4)} cm`
+    )
+
+    // This is the height of sideB
+    console.log(
+      `The height of side B is ${triangle.triangleHeight(2).toFixed(4)} cm`
+    )
+
+    // This is the height of sideC
+    console.log(
+      `The height of side C is ${triangle.triangleHeight(3).toFixed(4)} cm`
+    )
+
+    // the triangleRadius below
+    console.log('\nInner circle radius below!')
+
+    // This is the triangleRadius
+    console.log(
+      `The inner circle radius is ${triangle.innerCircleRadius().toFixed(4)} cm`
+    )
+
+    // The circumCircleTriangle is below
+    console.log('\nThe circumcircle is below!')
+
+    // This is the circumCircle
+    console.log(
+      `The circum circle radius is ${triangle
+        .circumRadiusTriangle()
+        .toFixed(4)} cm`
+    )
   }
 } catch (e) {
   console.log('Not a Valid Input!')
