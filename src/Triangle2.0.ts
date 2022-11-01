@@ -160,6 +160,7 @@ class Triangle {
     }
   }
 
+  // this calculates the circumRadius of the triangle
   circumRadiusTriangle(): number {
     if (!this.isTriangleValid()) {
       const circumRadius = -1
