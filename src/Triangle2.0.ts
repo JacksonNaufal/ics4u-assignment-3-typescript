@@ -20,6 +20,7 @@ class Triangle {
     this.sideC = lengthC
   }
 
+  // This checks the validity of the triangle
   isTriangleValid(): boolean {
     if (
       this.sideA + this.sideB <= this.sideC ||
@@ -34,7 +35,7 @@ class Triangle {
 
   // This is where the triangle name is created
   triangleName(): string {
-    if (this.isTriangleValid() == false) {
+    if (!this.isTriangleValid()) {
       const shape = '-1'
       return shape
     } else if (this.sideA === this.sideB && this.sideB === this.sideC) {
@@ -65,7 +66,7 @@ class Triangle {
 
   // This is where the perimeter is calculated
   trianglePerimeter(): number {
-    if (this.isTriangleValid() == false) {
+    if (!this.isTriangleValid()) {
       const perimeter = -1
       return perimeter
     } else {
@@ -74,8 +75,9 @@ class Triangle {
     }
   }
 
+  // This calculates the semiperimeter of the triangle
   triangleSemiperimeter(): number {
-    if (this.isTriangleValid() == false) {
+    if (!this.isTriangleValid()) {
       const semiperimeter = -1
       return semiperimeter
     } else {
@@ -86,7 +88,7 @@ class Triangle {
 
   // This is where the area of the triangle is calculated
   triangleArea(): number {
-    if (this.isTriangleValid() == false) {
+    if (!this.isTriangleValid()) {
       const area = -1
       return area
     } else {
@@ -102,14 +104,13 @@ class Triangle {
     }
   }
 
-  // This calculates angle A of the triangle
+  // This calculates angles of the triangle
   triangleAngle(side: number): number {
-    if (this.isTriangleValid() == false) {
-      let angle = -1
+    if (!this.isTriangleValid()) {
+      const angle = -1
       return angle
     } else {
       let angle: number
-      const oneEighty = 180
       const topSideA = Math.pow(this.sideA, 2)
       const topSideB = Math.pow(this.sideB, 2)
       const topSideC = Math.pow(this.sideC, 2)
@@ -132,6 +133,7 @@ class Triangle {
 
   // the status of the sides.
   status(): void {
+    console.log(`Triangle Validity Status: ${this.isTriangleValid()}`)
     console.log('The three sides were')
     console.log(`Side A ---> ${this.sideA}`)
     console.log(`Side B ---> ${this.sideB}`)
