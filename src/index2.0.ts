@@ -47,10 +47,7 @@ try {
     console.log(`The type is a ${triangle.triangleName()}`)
 
     // the area and perimeter and semiperimeter
-    console.log('\nThe Perimeter and Area are below!')
-
-    // The perimeter calculation
-    console.log(`The perimeter is ${triangle.trianglePerimeter()} cm`)
+    console.log('\nThe Semiperimeter and Area are below!')
 
     // The semi permieter calculation
     console.log(`The semiperimeter is ${triangle.triangleSemiperimeter()} cm`)
