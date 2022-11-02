@@ -65,7 +65,7 @@ class Triangle {
   }
 
   // This is where the perimeter is calculated
-  trianglePerimeter(): number {
+  private trianglePerimeter(): number {
     if (!this.isTriangleValid()) {
       const perimeter = -1
       return perimeter
