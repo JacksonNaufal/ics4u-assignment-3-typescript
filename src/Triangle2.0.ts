@@ -49,12 +49,9 @@ class Triangle {
       const shape = 'Isosceles Triangle'
       return shape
     } else if (
-      this.sideA * this.sideA + this.sideB * this.sideB ===
-        this.sideC * this.sideC ||
-      this.sideC * this.sideC + this.sideB * this.sideB ===
-        this.sideA * this.sideA ||
-      this.sideC * this.sideC + this.sideA * this.sideA ===
-        this.sideB * this.sideB
+      this.sideA ** 2 + this.sideB ** 2 === this.sideC ** 2 ||
+      this.sideC ** 2 + this.sideB ** 2 === this.sideA ** 2 ||
+      this.sideC ** 2 + this.sideA ** 2 === this.sideB ** 2
     ) {
       const shape = 'Right angle Triangle'
       return shape
@@ -81,7 +78,7 @@ class Triangle {
       const semiperimeter = -1
       return semiperimeter
     } else {
-      const semiperimeter = (this.sideA + this.sideB + this.sideC) / 2
+      const semiperimeter = this.trianglePerimeter() / 2
       return semiperimeter
     }
   }
